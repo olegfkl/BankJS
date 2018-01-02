@@ -10,11 +10,17 @@
   };
 
   Account.prototype.deposit = function (amount) {
+    var deposit = new Deposit(amount)
     this._balance += amount
   };
 
   Account.prototype.withdraw = function (amount) {
-    this._balance -= amount
+    if(this._balance >= amount) {
+      var deposit = new Withdrawal(amount)
+      this._balance -= amount
+    } else {
+      throw new Error('Insufficient funds')
+    }
   };
 
   exports.Account = Account;

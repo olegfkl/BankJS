@@ -10,7 +10,7 @@ describe('Account', function() {
   });
 
   describe('#deposit', function() {
-    it('I can deposit money to the account', function(){
+    it('I can deposit money to my account', function(){
       account.deposit(20)
       expect(account.balance()).toEqual(20);
     });
@@ -22,6 +22,11 @@ describe('Account', function() {
       account.deposit(20)
       account.withdraw(20)
       expect(account.balance()).toEqual(0);
+    });
+    it("cannot withdraw more than balance", function(){
+      expect(function() {
+        expect(account.withdraw(20));
+      }).toThrowError("Insufficient funds");
     });
   });
 });

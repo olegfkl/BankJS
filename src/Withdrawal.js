@@ -7,14 +7,14 @@
      this._date   = today;
   };
 
-  Deposit.prototype.amount = function () {
+  Withdrawal.prototype.amount = function () {
     return this._amount;
   };
 
-  Deposit.prototype.date = function () {
+  Withdrawal.prototype.date = function () {
     return this._date;
   };
 
-  exports.Deposit = Deposit;
+  exports.Withdrawal = Withdrawal;
 
 })(this);

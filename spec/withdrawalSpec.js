@@ -9,6 +9,6 @@ describe('Withdrawal', function() {
   });
 
   it('Returns the date', function(){
-    expect(deposit.date()).toEqual("2018/1/1");
+    expect(withdrawal.date()).toEqual("2018/1/1");
   });
 });
