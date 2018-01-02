@@ -1,6 +1,14 @@
 
 describe('Account', function() {
 
+  beforeEach(function(){
+    account = new Account();
+  });
+
+  it('Returns the balance', function(){
+    expect(account.balance()).toEqual(0);
+  });
+
   describe('#deposit', function() {
     it('I can deposit money to the account', function(){
       account.deposit(20)
