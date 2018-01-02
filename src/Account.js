@@ -1,26 +1,17 @@
 (function(exports) {
 
-  function Account() {
+  function Account(name, number) {
 
-    this._balance = 0;
+    this._name = name;
+    this._number = number;
   };
 
-  Account.prototype.balance = function () {
-    return this._balance;
+  Account.prototype.name = function () {
+    return this._name;
   };
 
-  Account.prototype.deposit = function (amount) {
-    var deposit = new Deposit(amount)
-    this._balance += amount
-  };
-
-  Account.prototype.withdraw = function (amount) {
-    if(this._balance >= amount) {
-      var deposit = new Withdrawal(amount)
-      this._balance -= amount
-    } else {
-      throw new Error('Insufficient funds')
-    }
+  Account.prototype.number = function () {
+    return this._number;
   };
 
   exports.Account = Account;
