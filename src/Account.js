@@ -1,8 +1,8 @@
 (function(exports) {
 
   function Account() {
-    'use strict';
-     this._balance = 0;
+
+    this._balance = 0;
   };
 
   Account.prototype.balance = function () {

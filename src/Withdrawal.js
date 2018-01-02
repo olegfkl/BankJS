@@ -2,17 +2,17 @@
 
   'use strict';
 
-  function Withdrawal(amount, today = new Date()) {
-     this._amount = amount;
-     this._date   = today;
+  function Withdrawal(amount) {
+    this._type   = 'debit'
+    this._amount = amount;
   };
 
   Withdrawal.prototype.amount = function () {
     return this._amount;
   };
 
-  Withdrawal.prototype.date = function () {
-    return this._date;
+  Withdrawal.prototype.type = function () {
+    return this._type;
   };
 
   exports.Withdrawal = Withdrawal;
