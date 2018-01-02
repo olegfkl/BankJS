@@ -1,5 +1,5 @@
 
 
 beforeEach(function(){
-  bank = new Bank();
+  account = new Account();
 });
