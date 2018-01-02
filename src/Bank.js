@@ -1,5 +1,19 @@
-function Bank() {
-  this.amount = 10;
+function Account() {
+    'use strict';
+    this._balance = 0;
+}
+
+Account.prototype.balance = function () {
+  return this._balance;
+}
+
+Account.prototype.deposit = function (amount) {
+  this._balance += amount
 };
 
-module.exports = Bank;
+Account.prototype.withdraw = function (amount) {
+  this._balance -= amount
+
+};
+
+module.exports = Account;

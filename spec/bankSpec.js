@@ -1,9 +1,16 @@
-describe('Bank', function(){
 
-  var Bank = require('../src/bank.js');
+var Bank = require('../src/bank.js');
 
-  it('has starting amount 10', function(){
-    expect(bank.amount).toEqual(10);
+describe('Account', function(){
+
+  it('I can deposit money to the account', function(){
+    bank.deposit(20)
+    expect(bank.balance()).toEqual(20);
   });
 
+  it('I can withdraw money from my account', function(){
+    bank.deposit(20)
+    bank.withdraw(20)
+    expect(bank.balance()).toEqual(0);
+  });
 });
