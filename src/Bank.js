@@ -1,14 +1,17 @@
 // (function(exports) {
 //
-//   function Account() {
+//   function Bank() {
 //
 //     this._name = 0;
 //   };
+//   create
+//   deposit
+//   withdraw
 //
 //   Account.prototype.balance = function () {
 //     return this._balance;
 //   };
-// 
+//
 //   // Test this function and extract using private function (you may need to do that = this)
 //   Account.prototype.deposit = function (amount) {
 //     var deposit = new Deposit(amount)
