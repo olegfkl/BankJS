@@ -4,7 +4,7 @@ describe('Transaction', function() {
   beforeEach(function() {
     transaction = new Transaction({ type: 'debit', amount:  50});
   });
-  // mock a operation class
+  // mock a operation/deposit class
   it('Returns operation type', function(){
     expect(transaction.type()).toEqual(jasmine.any(Object));
   });
