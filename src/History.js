@@ -1,6 +1,6 @@
 // (function(exports) {
 //
-//   function History() {
+//   function History(today = new Date, type, amount, currentBalance) {
 //
 //     this._name = 0;
 //   };

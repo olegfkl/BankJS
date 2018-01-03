@@ -16,5 +16,14 @@ describe('Account', function() {
   it('Returns the balance', function(){
     expect(account.balance()).toEqual(0);
   });
+
+  xit('Adds transaction to account history', function(){
+    expect(account.addToHistory(1)).toEqual(1);
+  });
+   // mock history here(mimic saving 1 transaction to history)
+  xit('Returns account history', function(){
+    this._history.push(['history'])
+    expect(account.history()).toEqual(1);
+  });
 });
-// mock balance and maybe acc number
+// mock balance,history and maybe acc number

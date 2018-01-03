@@ -4,9 +4,9 @@
 //
 //     this._name = 0;
 //   };
-//   create
-//   deposit
-//   withdraw
+//   // create
+//   // deposit
+//   // withdraw
 //
 //   Account.prototype.balance = function () {
 //     return this._balance;

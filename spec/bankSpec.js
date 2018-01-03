@@ -1,9 +1,8 @@
-
-//
-// describe('Account', function() {
+// 
+// describe('Bank', function() {
 //
 //   beforeEach(function(){
-//     account = new Account();
+//     bank = new Bank();
 //   });
 //
 //   it('Returns the balance', function(){
