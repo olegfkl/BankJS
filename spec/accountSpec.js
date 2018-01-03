@@ -22,7 +22,7 @@ describe('Account', function() {
   });
    // mock history here(mimic saving 1 transaction to history)
   xit('Returns account history', function(){
-    this._history.push(['history'])
+    account.addToHistory(1)
     expect(account.history()).toEqual(1);
   });
 });
