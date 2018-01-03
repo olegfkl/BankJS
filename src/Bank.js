@@ -37,8 +37,9 @@
     if(account) {
       var deposit = new Deposit(amount)
       var transaction = new Transaction(account.number(), deposit)
-      account.addBalance(transaction.amount())
+      account.credit(transaction.amount())
       account.addLog(transaction)
+      return account.balance();
     } else {
       throw new Error('Account was not found')
     };
@@ -64,3 +65,8 @@
   exports.Bank = Bank;
 
 })(this);
+
+
+// function formatter(date) {
+//   return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+// }

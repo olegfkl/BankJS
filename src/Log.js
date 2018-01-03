@@ -1,3 +1,4 @@
+
 (function(exports) {
 
   function Log(transaction, currentBalance, today = new Date) {

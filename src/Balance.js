@@ -7,9 +7,13 @@
   Balance.prototype.amount = function () {
     return this._amount;
   };
- // write test
-  Balance.prototype.addAmount = function (amount) {
+
+  Balance.prototype.addMoney = function (amount) {
     return this._amount += amount;
+  };
+
+  Balance.prototype.reduceMoney = function (amount) {
+    return this._amount -= amount;
   };
 
   exports.Balance = Balance;

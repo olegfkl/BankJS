@@ -1,9 +1,11 @@
-describe('History', function() {
+
+describe('Log', function() {
 
   beforeEach(function(){
-    log = new Log({amount: 30}, 50, '2018/1/1');
+    log = new Log({transaction: 'any' }, 50, '2018/1/1');
   });
 
+  // mock transaction only
   it('Returns a transaction', function(){
     expect(log.view()).toEqual(jasmine.any(Object));
   });
@@ -16,4 +18,3 @@ describe('History', function() {
     expect(log.date()).toEqual('2018/1/1');
   });
 });
-// mock transaction, currentBalance, date

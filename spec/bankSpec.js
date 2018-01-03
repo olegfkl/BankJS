@@ -22,7 +22,13 @@ describe('Bank', function() {
   describe('#deposit', function() {
     it('deposits an acount', function(){
       bank.createAccount('John')
-      expect(bank.deposit(1, 55)).toEqual(jasmine.any(Object));
+      expect(bank.deposit(1, 55)).toEqual(55);
+    });
+
+    it('Throws error if account not found', function(){
+      expect(function() {
+        expect(bank.deposit(1, 55));
+      }).toThrowError('Account was not found');
     });
   });
 

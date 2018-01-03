@@ -1,3 +1,4 @@
+
 (function(exports) {
 
   function Deposit(amount) {
@@ -11,8 +12,3 @@
   exports.Deposit = Deposit;
 
 })(this);
-
-
-// function formatter(date) {
-//   return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
-// }

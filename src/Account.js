@@ -19,8 +19,12 @@
      return this._balance.amount();
   };
 
-  Account.prototype.addBalance = function (amount) {
-    this._balance.addAmount(amount)
+  Account.prototype.credit = function (amount) {
+    return this._balance.addMoney(amount)
+  };
+
+  Account.prototype.debit = function (amount) {
+    return this._balance.reduceMoney(amount)
   };
 
   Account.prototype.history = function () {

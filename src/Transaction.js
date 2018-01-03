@@ -1,3 +1,4 @@
+
 (function(exports) {
 
   function Transaction(destination, operation) {
@@ -13,8 +14,12 @@
     return this._account;
   };
 
-  Transaction.prototype.type = function () {
+  Transaction.prototype.operation = function () {
     return this._operation;
+  };
+
+  Transaction.prototype.type = function () {
+    return this._operation instanceof Deposit ? 'credit' : 'debit'
   };
 
   exports.Transaction = Transaction;
