@@ -1,40 +1,55 @@
 (function(exports) {
 
-  function Bank(name = 'HSBC') {
-    this._name       = name;
-    this._accounts   = []
+  INCREMENTER = 1
+
+ function Bank(name = 'HSBC') {
+    this._name      = name;
+    this._accounts  = []
   };
-  // create
-  // deposit
-  // withdraw
 
   Bank.prototype.name = function () {
     return this._name;
   };
 
-  Bank.prototype.numberOfAccounts = function () {
-    return this._accounts.length;
+  Bank.prototype.accounts = function () {
+    return this._accounts;
   };
 
   Bank.prototype.createAccount = function (name) {
     var that = this
-    var newNumber = newAccountsNumber();
+    var newNumber = newAccountNumber();
     var account = new Account(name, newNumber)
-    save(account);
+    save();
 
-    function save(account) {
+    function save() {
       that._accounts.push(account)
     };
-    function newAccountsNumber() {
-      return that._accounts.length + 1
+    function newAccountNumber() {
+      return that.accounts().length + INCREMENTER
     };
     return account;
   };
+    // Refactor/exctract
+  Bank.prototype.deposit = function (destination, amount) {
+    var account;
+    var that = this
+    findAccount();
+    if(account) {
+      var deposit = new Deposit(amount)
+      var transaction = new Transaction(account.number(), deposit)
+      account.addBalance(transaction.amount())
+      account.addLog(transaction)
+    } else {
+      throw new Error('Account was not found')
+    };
 
-  // Test this function and extract using private function (you may need to do that = this)
-  Bank.prototype.deposit = function (amount) {
-    var deposit = new Deposit(amount)
-    var transaction = new Transaction(deposit, this._balance + amount)
+    function findAccount() {
+      that.accounts().map(function(e) {
+        if(e.number() === destination) {
+          account = e
+        }
+      });
+    };
   };
 
   Bank.prototype.withdraw = function (amount) {

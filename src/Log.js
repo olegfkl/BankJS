@@ -1,7 +1,7 @@
 (function(exports) {
 
   function Log(transaction, currentBalance, today = new Date) {
-    this._transaction = null;
+    this._transaction = transaction;
     this._balance     = currentBalance;
     this._date        = today
   };

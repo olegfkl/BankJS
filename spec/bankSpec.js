@@ -8,9 +8,9 @@ describe('Bank', function() {
   it('Returns bank name', function(){
     expect(bank.name()).toEqual('HSBC');
   });
-
-  it('Returns total number of accounts', function(){
-    expect(bank.numberOfAccounts()).toEqual(0);
+  // improve this (not object but instances)
+  it('Returns an array of accounts', function(){
+    expect(bank.accounts()).toEqual(jasmine.any(Object));
   });
    // stub account?
   describe('#createAccount', function() {
@@ -18,6 +18,14 @@ describe('Bank', function() {
       expect(bank.createAccount('John')).toEqual(jasmine.any(Object));
     });
   });
+
+  describe('#deposit', function() {
+    it('deposits an acount', function(){
+      bank.createAccount('John')
+      expect(bank.deposit(1, 55)).toEqual(jasmine.any(Object));
+    });
+  });
+
 
   // describe('#withdraw', function() {
 

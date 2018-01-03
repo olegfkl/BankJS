@@ -2,7 +2,7 @@
 describe('Transaction', function() {
 
   beforeEach(function() {
-    transaction = new Transaction({ type: 'debit', amount:  50});
+    transaction = new Transaction(5, { type: 'debit', amount:  50});
   });
   // mock a operation/deposit class
   it('Returns operation type', function(){
@@ -11,5 +11,9 @@ describe('Transaction', function() {
 
   it('Returns operation amount', function(){
     expect(transaction.amount()).toEqual(50);
+  });
+
+  it('Returns destination account', function(){
+    expect(transaction.destination(5)).toEqual(5);
   });
 });

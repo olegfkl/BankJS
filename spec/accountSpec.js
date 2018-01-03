@@ -16,13 +16,17 @@ describe('Account', function() {
   it('Returns the balance', function(){
     expect(account.balance()).toEqual(0);
   });
+   // might need to mock balance here
+  xit('Updates account balance', function(){
+    expect(account.updateBalance()).toEqual();
+  });
 
   xit('Adds transaction to account history', function(){
     expect(account.addToHistory(1)).toEqual(1);
   });
    // mock history here(mimic saving 1 transaction to history)
   xit('Returns account history', function(){
-    account.addToHistory(1)
+    account.addLog(1)
     expect(account.history()).toEqual(1);
   });
 });

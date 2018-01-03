@@ -1,11 +1,16 @@
 (function(exports) {
 
-  function Transaction(operation) {
-     this._operation = operation
+  function Transaction(destination, operation) {
+     this._account   = destination;
+     this._operation = operation;
   };
 
   Transaction.prototype.amount = function () {
-    return this._operation.amount;
+    return this._operation.amount();
+  };
+
+  Transaction.prototype.destination = function () {
+    return this._account;
   };
 
   Transaction.prototype.type = function () {

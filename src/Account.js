@@ -16,17 +16,21 @@
   };
 
   Account.prototype.balance = function () {
-    return this._balance.amount();
+     return this._balance.amount();
   };
 
-  Account.prototype.log = function () {
-    return this._log;
+  Account.prototype.addBalance = function (amount) {
+    this._balance.addAmount(amount)
+  };
+
+  Account.prototype.history = function () {
+    return this._history;
   };
 
   // refactor this method - exctract and see dependency injection
-  Account.prototype.addToHistory = function (transaction) {
-    var log = new Log(transaction, this.balance)
-    return this._history.push(log);
+  Account.prototype.addLog = function (transaction) {
+    var log = new Log(transaction, this.balance())
+    this._history.push(log);
   };
 
   Account.prototype.history = function () {
