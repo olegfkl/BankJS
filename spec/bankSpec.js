@@ -53,4 +53,11 @@ describe('Bank', function() {
       }).toThrowError('Insufficient funds');
     });
   });
+
+  describe('#viewAccount', function() {
+    xit('Returns true?', function(){
+      bank.createAccount('John')
+      expect(bank.deposit(1, 55)).toEqual(55);
+    });
+  });
 });

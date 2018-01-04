@@ -2,9 +2,10 @@
 
   INCREMENTER = 1
 
- function Bank(name = 'HSBC') {
+ function Bank(name = 'HSBC', printer = new View) {
     this._name      = name;
-    this._accounts  = []
+    this._accounts  = [];
+    this._printer   = printer;
   };
 
   Bank.prototype.name = function () {
@@ -79,11 +80,12 @@
     });
     return account;
   };
+
+  Bank.prototype.viewAccount = function (account) {
+    var account = this.account(account)
+    this._printer.display(account.history());
+  };
+
   exports.Bank = Bank;
 
 })(this);
-
-
-// function formatter(date) {
-//   return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
-// }
