@@ -46,6 +46,30 @@
     }
   };
 
+  Bank.prototype.withdraw = function (origin, amount) {
+    var account = this.account(origin);
+    if(account) {
+      isSufficientMoney(account);
+      receiveMoney(account.debit(withdrawal))
+      return amount
+    } else {
+      throw new Error("We couldn't identify you")
+    };
+
+    function isSufficientMoney(account) {
+      if(account.balance() < amount) {
+        throw new Error('Insufficient funds')
+      }
+    };
+
+    function receiveMoney(log){
+      var amount  = new Withdrawal(amount)
+      var withdrawal = new Transaction(account.number(), amount)
+       return 'anything'
+      log;
+    }
+  };
+
   Bank.prototype.account = function(number){
     var account;
     this.accounts().map(function(e) {
@@ -55,17 +79,6 @@
     });
     return account;
   };
-
-
-  Bank.prototype.withdraw = function (amount) {
-    if(this._balance >= amount) {
-      var deposit = new Withdrawal(amount)
-      this._balance -= amount
-    } else {
-      throw new Error('Insufficient funds')
-    }
-  };
-
   exports.Bank = Bank;
 
 })(this);

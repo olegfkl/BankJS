@@ -30,8 +30,14 @@
     };
   };
 
-  Account.prototype.debit = function (amount) {
-    return this._balance.reduceMoney(amount)
+  Account.prototype.debit = function (withdrawal) {
+    var that = this
+    withdraw();
+    this.addLog(withdrawal);
+
+    function withdraw() {
+      return that._balance.reduceMoney(withdrawal.amount())
+    };
   };
 
   Account.prototype.history = function () {
@@ -42,7 +48,6 @@
   Account.prototype.addLog = function (transaction) {
     var log = new Log(transaction, this.balance())
     this._history.push(log);
-    console.log(log)
   };
 
   Account.prototype.history = function () {

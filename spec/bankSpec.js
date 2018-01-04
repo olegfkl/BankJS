@@ -24,7 +24,7 @@ describe('Bank', function() {
       bank.createAccount('John')
       expect(bank.deposit(1, 55)).toEqual(55);
     });
-
+// write test to 'increse by' balance
     it('Throws error if account not found', function(){
       expect(function() {
         expect(bank.deposit(1, 55));
@@ -32,18 +32,25 @@ describe('Bank', function() {
     });
   });
 
+  // write test to 'decrese by' balance
 
-  // describe('#withdraw', function() {
+  describe('#withdraw', function() {
+    it('withdraws money from my account', function(){
+      bank.createAccount('John')
+      bank.deposit(1,20)
+      expect(bank.withdraw(1,20)).toEqual(20);
+    });
+    it('Throws error if account not found', function(){
+      expect(function() {
+        expect(bank.withdraw(1, 20));
+      }).toThrowError("We couldn't identify you");
+    });
 
-  //   it('I can withdraw money from my account', function(){
-  //     account.deposit(20)
-  //     account.withdraw(20)
-  //     expect(account.balance()).toEqual(0);
-  //   });
-  //   it("cannot withdraw more than balance", function(){
-  //     expect(function() {
-  //       expect(account.withdraw(20));
-  //     }).toThrowError("Insufficient funds");
-  //   });
-  // });
+    it("cannot withdraw more than available balance", function(){
+      bank.createAccount('John')
+      expect(function() {
+        expect(bank.withdraw(1, 20));
+      }).toThrowError('Insufficient funds');
+    });
+  });
 });
