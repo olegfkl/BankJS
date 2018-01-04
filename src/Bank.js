@@ -29,29 +29,33 @@
     };
     return account;
   };
-    // Refactor/exctract
+
   Bank.prototype.deposit = function (destination, amount) {
-    var account;
-    var that = this
-    findAccount();
+    var account = this.account(destination);
     if(account) {
-      var deposit = new Deposit(amount)
-      var transaction = new Transaction(account.number(), deposit)
-      account.credit(transaction.amount())
-      account.addLog(transaction)
-      return account.balance();
+      sendMoney(account.receive(deposit))
+      return amount
     } else {
       throw new Error('Account was not found')
     };
 
-    function findAccount() {
-      that.accounts().map(function(e) {
-        if(e.number() === destination) {
-          account = e
-        }
-      });
-    };
+    function sendMoney(log){
+      var amount  = new Deposit(amount)
+      var deposit = new Transaction(account.number(), amount)
+      log;
+    }
   };
+
+  Bank.prototype.account = function(number){
+    var account;
+    this.accounts().map(function(e) {
+      if(e.number() === number) {
+        account = e
+      }
+    });
+    return account;
+  };
+
 
   Bank.prototype.withdraw = function (amount) {
     if(this._balance >= amount) {

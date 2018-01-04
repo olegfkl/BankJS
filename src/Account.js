@@ -19,8 +19,15 @@
      return this._balance.amount();
   };
 
-  Account.prototype.credit = function (amount) {
-    return this._balance.addMoney(amount)
+  Account.prototype.receive = function (deposit) {
+     var that = this
+     credit();
+     this.addLog(deposit)
+     return deposit.amount();
+
+    function credit() {
+      return that._balance.addMoney(deposit.amount())
+    };
   };
 
   Account.prototype.debit = function (amount) {
@@ -35,6 +42,7 @@
   Account.prototype.addLog = function (transaction) {
     var log = new Log(transaction, this.balance())
     this._history.push(log);
+    console.log(log)
   };
 
   Account.prototype.history = function () {

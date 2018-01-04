@@ -18,7 +18,7 @@ describe('Account', function() {
   });
    // might need to mock balance here
   xit('Adds money to the account', function(){
-    expect(account.credit()).toEqual();
+    expect(account.receive()).toEqual();
   });
 
   xit('Adds transaction to account history', function(){
