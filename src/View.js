@@ -11,7 +11,7 @@
 
     sort();
 
-    console.log('date' + '      ||' + 'credit' + '||' + ' debit' + ' ||' + 'balance')
+    console.log('date' + '      ||' + 'credit' + '||' + 'debit ' + '||' + 'balance')
     for(i = 0; i < dates.length; i++) {
     console.log(dates[i], ' || ', credits[i], ' || ', debits[i], ' || ', balances[i])
   }

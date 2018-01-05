@@ -1,11 +1,13 @@
+
 (function(exports) {
 
   INCREMENTER = 1
 
- function Bank(name = 'HSBC', printer = new View) {
+ function Bank(name = 'HSBC', printer = new View, account = Account) {
     this._name      = name;
     this._accounts  = [];
     this._printer   = printer;
+    this._account   = account
   };
 
   Bank.prototype.name = function () {
@@ -19,7 +21,7 @@
   Bank.prototype.createAccount = function (name) {
     var that = this
     var newNumber = newAccountNumber();
-    var account = new Account(name, newNumber)
+    var account = new this._account(name, newNumber)
     save();
 
     function save() {
@@ -37,7 +39,7 @@
       sendMoney(account.receive(deposit))
       return amount
     } else {
-      throw new Error('Account was not found')
+        throw new Error('Account was not found')
     };
 
     function sendMoney(log){
@@ -66,7 +68,6 @@
     function receiveMoney(log){
       var amount  = new Withdrawal(amount)
       var withdrawal = new Transaction(account.number(), amount)
-       return 'anything'
       log;
     }
   };
@@ -83,7 +84,7 @@
 
   Bank.prototype.viewAccount = function (account) {
     var account = this.account(account)
-    this._printer.display(account.history());
+    return this._printer.display(account.history());
   };
 
   exports.Bank = Bank;
