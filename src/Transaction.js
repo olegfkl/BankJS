@@ -18,10 +18,6 @@
     return this._operation;
   };
 
-  Transaction.prototype.type = function () {
-    return this._operation instanceof Deposit ? 'credit' : 'debit'
-  };
-
   exports.Transaction = Transaction;
 
 })(this);

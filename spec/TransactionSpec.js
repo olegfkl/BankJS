@@ -17,10 +17,4 @@ describe('Transaction', function() {
   it('Returns destination account', function(){
     expect(transaction.destination(578657)).toEqual(578657);
   });
-  // this will only pass when you inject doubleOperatiom(and mock type class too)
-  describe('#type', function() {
-    it('Returns the type of transaction', function(){
-      expect(transaction.type()).toEqual('credit')
-    });
-  });
 });

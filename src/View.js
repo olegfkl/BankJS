@@ -16,13 +16,10 @@
     console.log(dates[i], ' || ', credits[i], ' || ', debits[i], ' || ', balances[i])
   }
 
-
-
-
     function sort() {
       history.forEach(function(e){
       dates.push(formatter(e._date))
-      balances.push(e.balance())
+      balances.push(e._balance)
       if(e._transaction instanceof Deposit) {
         credits.push(e._transaction._amount)
         debits.push('  ')

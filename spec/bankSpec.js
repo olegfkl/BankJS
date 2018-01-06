@@ -48,7 +48,7 @@ describe('Bank', function() {
     it("cannot withdraw more than available balance", function(){
       bank.createAccount('John')
       expect(function() {
-        expect(bank.withdraw(1, 20));
+        expect(bank.withdraw(1, 30));
       }).toThrowError('Insufficient funds');
     });
   });
