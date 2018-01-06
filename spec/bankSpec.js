@@ -1,15 +1,9 @@
 
 describe('Bank', function() {
 
-  function DoubleView(){
-    DoubleView.prototype.display = function(history){
-      return true;
-    };
-  };
-
   beforeEach(function(){
     doubleView = new DoubleView();
-    bank = new Bank('HSBC', doubleView);
+    bank = new Bank('HSBC', doubleView, DoubleAccount);
   });
 
   it('Returns bank name', function(){
@@ -19,10 +13,10 @@ describe('Bank', function() {
   it('Returns an array of accounts', function(){
     expect(bank.accounts()).toEqual(jasmine.any(Array));
   });
-   // stub account?
+
   describe('#createAccount', function() {
     it('Creates a new account', function(){
-      expect(bank.createAccount('John')).toEqual(jasmine.any(Account));
+      expect(bank.createAccount('John')).toEqual(jasmine.any(DoubleAccount));
     });
   });
 
@@ -31,15 +25,13 @@ describe('Bank', function() {
       bank.createAccount('John')
       expect(bank.deposit(1, 55)).toEqual(55);
     });
-// write test to 'increse by' balance
+
     it('Throws error if account not found', function(){
       expect(function() {
         expect(bank.deposit(1, 55));
       }).toThrowError('Account was not found');
     });
   });
-
-  // write test to 'decrese by' balance
 
   describe('#withdraw', function() {
     it('withdraws money from my account', function(){
