@@ -16,7 +16,7 @@ describe('Account', function() {
   it('Returns the balance', function(){
     expect(account.balance()).toEqual(0);
   });
-   // might need to mock balance here
+
   xit('Adds money to the account', function(){
     expect(account.receive()).toEqual();
   });
@@ -24,10 +24,9 @@ describe('Account', function() {
   xit('Adds transaction to account history', function(){
     expect(account.addToHistory(1)).toEqual(1);
   });
-   // mock history here(mimic saving 1 transaction to history)
+
   xit('Returns account history', function(){
     account.addLog(1)
     expect(account.history()).toEqual(1);
   });
 });
-// mock balance,history and maybe acc number

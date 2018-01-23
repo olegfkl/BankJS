@@ -5,7 +5,7 @@ describe('Log', function() {
     log = new Log({transaction: 'any' }, 50, '2018/1/1');
   });
 
-  // mock transaction only
+
   it('Returns a transaction', function(){
     expect(log.view()).toEqual(jasmine.any(Object));
   });
