@@ -36,7 +36,7 @@
   Bank.prototype.deposit = function (destination, amount) {
     var account = this.account(destination);
     if(account) {
-      sendMoney(account.receive(deposit))
+      sendMoney()
       return amount
     } else {
         throw new Error('Account was not found')
@@ -45,7 +45,8 @@
     function sendMoney(log){
       var amount  = new Deposit(amount)
       var deposit = new Transaction(account.number(), amount)
-      log;
+      account.receive(deposit);
+
     }
   };
 
@@ -53,7 +54,7 @@
     var account = this.account(origin);
     if(account) {
       isSufficientMoney(account);
-      receiveMoney(account.debit(withdrawal))
+      receiveMoney()
       return amount
     } else {
       throw new Error("We couldn't identify you")
@@ -68,7 +69,7 @@
     function receiveMoney(log){
       var amount  = new Withdrawal(amount)
       var withdrawal = new Transaction(account.number(), amount)
-      log;
+      account.debit(withdrawal)
     }
   };
 

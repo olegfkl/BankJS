@@ -14,6 +14,6 @@ describe('Transaction', function() {
   });
 
   it('Returns destination account', function(){
-    expect(transaction.destination(578657)).toEqual(578657);
+    expect(transaction.destination(57)).toEqual(57);
   });
 });
